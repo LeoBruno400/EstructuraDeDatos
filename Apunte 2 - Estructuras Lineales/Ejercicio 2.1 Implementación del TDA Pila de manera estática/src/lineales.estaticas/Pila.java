@@ -1,5 +1,7 @@
-public class Pila {
+import java.util.Arrays;
 
+public class Pila {
+    //Ejercicio 1
     private static final int TAMANIO = 5;
     private Object[] arreglo;
     private int tope;
@@ -89,10 +91,18 @@ public class Pila {
     }
 
     public Pila clone() {
-        // Clona la pila en una nueva.
+        //Clona la pila en una nueva.
         Pila nueva = new Pila();
         nueva.arreglo = this.arreglo.clone();
         nueva.tope = this.tope;
         return nueva;
+    }
+
+    public boolean equals(Pila newPila1){
+        //Compara si dos pilas son iguales en elementos;
+
+        boolean aux = Arrays.equals(this.arreglo, newPila1.arreglo);
+        
+        return aux;
     }
 }
