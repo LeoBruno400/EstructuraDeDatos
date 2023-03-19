@@ -1,6 +1,7 @@
 public class TestPila {
 
      public static void main(String[] args){
+        //Ejercicio B
         Pila newPila1 = new Pila();
 
         for (int i = 0; i < 5; i++) {
@@ -21,6 +22,13 @@ public class TestPila {
         newPila1.vaciar();
         System.out.println("Vaciar Pila: " + newPila1.toString());
         System.out.println("Clonar Pila " + "\n" + newPila2.toString());
+
+        //Ejercicio C
+
+        for (int i = 0; i < 5; i++) {
+            newPila1.apilar((int)(Math.random()*2));
+        }
+        System.out.println("La pila es: " + "\n" + newPila1.toString());
         
      }
 }
