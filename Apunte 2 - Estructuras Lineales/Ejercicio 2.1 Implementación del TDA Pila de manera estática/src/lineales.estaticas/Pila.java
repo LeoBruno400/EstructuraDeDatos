@@ -4,22 +4,22 @@ public class Pila {
     private Object[] arreglo;
     private int tope;
 
-    //Constructor de la pila.
-    public Pila(){
+    // Constructor de la pila.
+    public Pila() {
         this.arreglo = new Object[TAMANIO];
         this.tope = -1;
     }
 
-    //---------------------Basicas---------------------
-    
-    public boolean apilar(Object newElem){
-        //Apila un nuevo elemento.
+    // ---------------------Basicas---------------------
+
+    public boolean apilar(Object newElem) {
+        // Apila un nuevo elemento.
         boolean sePuedeApilar;
 
-        if(this.tope+1 >= TAMANIO){
-            //EROR: pila llena.
+        if (this.tope + 1 >= TAMANIO) {
+            // EROR: pila llena.
             sePuedeApilar = false;
-        }else{
+        } else {
             // Pone el elemento en el tope de la pila e incrementa el tope.
             this.tope++;
             this.arreglo[this.tope] = newElem;
@@ -28,12 +28,12 @@ public class Pila {
         return sePuedeApilar;
     }
 
-    public boolean desapilar(){ 
-        //Desapila un elemento (le aplica la eutanasia).
+    public boolean desapilar() {
+        // Desapila un elemento (le aplica la eutanasia).
         boolean borrar = false;
 
-        if(this.tope > -1){
-            //Eutanasia
+        if (this.tope > -1) {
+            // Eutanasia
             this.arreglo[this.tope] = null;
             borrar = true;
             this.tope--;
@@ -41,55 +41,55 @@ public class Pila {
         return borrar;
     }
 
-    public Object obtenerTope(){
-        //Obtiene el elemento del tope de la pila.
+    public Object obtenerTope() {
+        // Obtiene el elemento del tope de la pila.
         Object elemento = null;
 
-        if(this.tope > -1){
-            elemento  = this.arreglo[this.tope];
+        if (this.tope > -1) {
+            elemento = this.arreglo[this.tope];
         }
         return elemento;
     }
 
-    public boolean esVacia(){
-        //Verifica si la pila esta vacia.
+    public boolean esVacia() {
+        // Verifica si la pila esta vacia.
         boolean vacia = true;
 
-        if(this.tope > -1){
+        if (this.tope > -1) {
             vacia = false;
         }
         return vacia;
     }
 
-    //---------------------NO Basicas---------------------
+    // ---------------------NO Basicas---------------------
 
-    public void vaciar(){
-        //Vacia la pila sin guardar los elementos.
+    public void vaciar() {
+        // Vacia la pila sin guardar los elementos.
         int i;
 
-        for (i = this.tope; i > -1 ; i--) {
+        for (i = this.tope; i > -1; i--) {
             this.arreglo[i] = null;
         }
         this.tope = -1;
     }
 
-    public String toString(){
-        //Imprime los elementos dentro de la pila.
+    public String toString() {
+        // Imprime los elementos dentro de la pila.
         String mensaje = "";
         int i;
 
-        if(this.tope > -1){
+        if (this.tope > -1) {
             for (i = 0; i <= this.tope; i++) {
-                mensaje += i+"-"+this.arreglo[i].toString()+"\n";
+                mensaje += i + "-" + this.arreglo[i].toString() + "\n";
             }
-        }else{
+        } else {
             mensaje = "ERROR: Pila Vacia";
         }
         return mensaje;
     }
 
-    public Pila clone(){
-        //Clona la pila en una nueva.
+    public Pila clone() {
+        // Clona la pila en una nueva.
         Pila nueva = new Pila();
         nueva.arreglo = this.arreglo.clone();
         nueva.tope = this.tope;
