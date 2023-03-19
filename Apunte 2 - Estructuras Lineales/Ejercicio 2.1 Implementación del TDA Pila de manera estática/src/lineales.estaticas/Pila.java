@@ -80,10 +80,10 @@ public class Pila {
 
         if (this.tope > -1) {
             for (i = 0; i <= this.tope; i++) {
-                mensaje += i + "-" + this.arreglo[i].toString() + "\n";
+                mensaje += "POSICION " + i + ": " + this.arreglo[i].toString() + "\n";
             }
         } else {
-            mensaje = "ERROR: Pila Vacia";
+            mensaje = "Pila Vacia";
         }
         return mensaje;
     }
