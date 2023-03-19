@@ -48,5 +48,12 @@ public class TestPila {
             System.out.println("No son capicua");
         }
 
+        /*
+        Extienda la clase TestPila para comprobar que
+        la misma clase Pila también funciona con elementos de tipo String.
+        */
+        
+
+
      }
 }
