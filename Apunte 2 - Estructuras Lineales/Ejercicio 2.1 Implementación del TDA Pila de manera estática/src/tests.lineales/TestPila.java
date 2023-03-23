@@ -26,7 +26,7 @@ public class TestPila {
         //Ejercicio 3
 
         for (int i = 0; i < 5; i++) {
-            newPila1.apilar((int)(Math.random()*10));
+            newPila1.apilar((int)(Math.random()*4));
         }
         System.out.println("La random es: " + "\n" + newPila1.toString());
 
@@ -34,8 +34,8 @@ public class TestPila {
         Pila aux = newPila1.clone();
         Object numAux = "";
 
-        for (int j = 0; j < 5; j++) {
-            numAux = aux.obtenerTope();
+        for (int j = 0; j < 5; j++) { //No asumir cuantos elementos tiene, tiene que ser genericoq
+            numAux = aux.obtenerTope(); //Pasar a un metodo para usarse en cualquier pila
             aux.desapilar();
             newPila3.apilar(numAux);
         }
