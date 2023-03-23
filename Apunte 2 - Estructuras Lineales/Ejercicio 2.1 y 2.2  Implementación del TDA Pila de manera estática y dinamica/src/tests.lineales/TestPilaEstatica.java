@@ -1,14 +1,14 @@
-public class TestPila {
+public class TestPilaEstatica {
 
      public static void main(String[] args){
         //Ejercicio 2
-        Pila newPila1 = new Pila();
+        PilaEstatica newPila1 = new PilaEstatica();
 
         for (int i = 0; i < 5; i++) {
             newPila1.apilar(i);
         }
 
-        Pila newPila2 = newPila1.clone();
+        PilaEstatica newPila2 = newPila1.clone();
 
         // ---------------------Basicas---------------------
         //.apliar se utilizo en la repetitiva PARA
@@ -30,8 +30,8 @@ public class TestPila {
         }
         System.out.println("La random es: " + "\n" + newPila1.toString());
 
-        Pila newPila3 = new Pila();
-        Pila aux = newPila1.clone();
+        PilaEstatica newPila3 = new PilaEstatica();
+        PilaEstatica aux = newPila1.clone();
         Object numAux = "";
 
         for (int j = 0; j < 5; j++) { //No asumir cuantos elementos tiene, tiene que ser genericoq

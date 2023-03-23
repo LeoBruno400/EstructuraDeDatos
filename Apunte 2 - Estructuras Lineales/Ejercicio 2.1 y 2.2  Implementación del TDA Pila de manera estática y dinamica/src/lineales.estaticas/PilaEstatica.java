@@ -1,13 +1,13 @@
 import java.util.Arrays;
 
-public class Pila {
+public class PilaEstatica {
     //Ejercicio 1
     private static final int TAMANIO = 5;
     private Object[] arreglo;
     private int tope;
 
     // Constructor de la pila.
-    public Pila() {
+    public PilaEstatica() {
         this.arreglo = new Object[TAMANIO];
         this.tope = -1;
     }
@@ -90,15 +90,15 @@ public class Pila {
         return mensaje;
     }
 
-    public Pila clone() {
+    public PilaEstatica clone() {
         //Clona la pila en una nueva.
-        Pila nueva = new Pila();
+        PilaEstatica nueva = new PilaEstatica();
         nueva.arreglo = this.arreglo.clone();
         nueva.tope = this.tope;
         return nueva;
     }
 
-    public boolean equals(Pila newPila1){
+    public boolean equals(PilaEstatica newPila1){
         //Compara si dos pilas son iguales en elementos;
 
         boolean aux = Arrays.equals(this.arreglo, newPila1.arreglo);
