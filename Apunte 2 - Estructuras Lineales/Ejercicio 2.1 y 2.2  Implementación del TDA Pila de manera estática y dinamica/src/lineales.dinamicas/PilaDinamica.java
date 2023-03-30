@@ -59,6 +59,24 @@ public class PilaDinamica {
     }
 
     @Override
+    public PilaDinamica clone(){
+        PilaDinamica clon = new PilaDinamica();
+        clon.tope = recNodos(this.tope);
+        return clon;
+    }
+
+    private Nodo recNodos(Nodo nodoOr){
+        Nodo nodoClon = new Nodo(null, null);
+        if (nodoOr.getEnlace() == null){
+            nodoClon.setElemento(nodoOr.getElemento());;
+        }else{
+            nodoClon.setElemento(nodoOr.getElemento()); 
+            nodoClon.setEnlace(recNodos(nodoOr.getEnlace()));
+        }
+        return nodoClon;
+    }
+    
+    @Override
     public String toString(){
         String s = "";
 
