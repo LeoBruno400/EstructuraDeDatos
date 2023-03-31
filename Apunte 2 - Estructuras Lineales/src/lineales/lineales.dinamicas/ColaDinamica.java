@@ -66,25 +66,31 @@ public class ColaDinamica {
     }
 
     @Override
-    public ColaDinamica clone(){
-        ColaDinamica colaClon = new ColaDinamica();
-        
+    public ColaDinamica clone() {
+    ColaDinamica colaClon = new ColaDinamica();
 
-        if(this.frente != null){
-            Nodo recorrer, copia;
-            recorrer = this.frente;
-            copia = new Nodo(null, null);
+    if (this.frente != null) {
+        // Creamos el primer nodo de la cola clonada
+        Nodo nodoClonado = new Nodo(this.frente.getElemento(), null);
+        colaClon.frente = nodoClonado;
 
-            do{
-                copia.setElemento(recorrer.getElemento());
-                copia.setEnlace(null);
-                colaClon.poner(copia);
-                recorrer = recorrer.getEnlace();
-            }while(recorrer != null);
+        // Iteramos sobre los nodos restantes de la cola original
+        Nodo nodoActual = this.frente.getEnlace();
+        while (nodoActual != null) {
+            // Creamos un nuevo nodo en la cola clonada
+            Nodo nuevoNodo = new Nodo(nodoActual.getElemento(), null);
+            // Enlazamos el nuevo nodo con el último nodo de la cola clonada
+            nodoClonado.setEnlace(nuevoNodo);
+            // Actualizamos el último nodo de la cola clonada
+            nodoClonado = nuevoNodo;
+            nodoActual = nodoActual.getEnlace();
         }
-
-        return colaClon;
+        // Actualizamos el último nodo de la cola clonada
+        colaClon.fin = nodoClonado;
     }
+    return colaClon;
+}
+
 
     @Override
     public String toString(){
