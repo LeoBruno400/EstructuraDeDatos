@@ -120,7 +120,7 @@ public class PilaEstatica {
             inversa.apilar(numAux);
         }
 
-        return this.arreglo.equals(inversa);
+        return Arrays.equals(this.arreglo, inversa.arreglo);
         
     }
 }

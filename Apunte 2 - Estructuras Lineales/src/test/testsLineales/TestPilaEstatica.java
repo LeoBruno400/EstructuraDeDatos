@@ -33,8 +33,8 @@ public class TestPilaEstatica {
             newPila1.apilar((int)(Math.random()*4));
         }
         System.out.println("La random es: " + "\n" + newPila1.toString());
-
-       System.out.println("Es capicua: " + newPila1.esCapicua());
+        
+        System.out.println("Es capicua: " + newPila1.esCapicua());
 
         /*
         Extienda la clase TestPila para comprobar que
