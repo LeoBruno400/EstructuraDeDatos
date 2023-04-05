@@ -100,9 +100,27 @@ public class PilaEstatica {
 
     public boolean equals(PilaEstatica newPila1){
         //Compara si dos pilas son iguales en elementos;
-
         boolean aux = Arrays.equals(this.arreglo, newPila1.arreglo);
         
         return aux;
+    }
+
+    public boolean esCapicua(){
+        //Compara si la pila es capicua
+        PilaEstatica pilaAux = new PilaEstatica();
+        pilaAux.arreglo = this.arreglo.clone();
+        PilaEstatica inversa = new PilaEstatica();
+        Object numAux = "";
+
+        int i, n = this.arreglo.length;
+
+        for (i = 0; i < n; i++) {
+            numAux = pilaAux.obtenerTope();
+            pilaAux.desapilar();
+            inversa.apilar(numAux);
+        }
+
+        return this.arreglo.equals(inversa);
+        
     }
 }

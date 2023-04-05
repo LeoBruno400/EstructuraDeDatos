@@ -34,23 +34,7 @@ public class TestPilaEstatica {
         }
         System.out.println("La random es: " + "\n" + newPila1.toString());
 
-        PilaEstatica newPila3 = new PilaEstatica();
-        PilaEstatica aux = newPila1.clone();
-        Object numAux = "";
-
-        for (int j = 0; j < 5; j++) { //No asumir cuantos elementos tiene, tiene que ser genericoq
-            numAux = aux.obtenerTope(); //Pasar a un metodo para usarse en cualquier pila
-            aux.desapilar();
-            newPila3.apilar(numAux);
-        }
-
-        System.out.println("La invertida es: " + "\n" + newPila3.toString());
-
-        if(newPila1.equals(newPila3) == true){
-            System.out.println("Es capicua");
-        }else{
-            System.out.println("No son capicua");
-        }
+       System.out.println("Es capicua: " + newPila1.esCapicua());
 
         /*
         Extienda la clase TestPila para comprobar que
