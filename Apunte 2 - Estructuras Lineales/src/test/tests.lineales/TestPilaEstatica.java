@@ -1,6 +1,8 @@
 public class TestPilaEstatica {
 
      public static void main(String[] args){
+        //---------------------------------------------------------------
+        
         //Ejercicio 2
         PilaEstatica newPila1 = new PilaEstatica();
 
@@ -22,7 +24,9 @@ public class TestPilaEstatica {
         newPila1.vaciar();
         System.out.println("Vaciar Pila: " + newPila1.toString());
         System.out.println("Clonar Pila " + "\n" + newPila2.toString());
-     
+        
+        //---------------------------------------------------------------
+
         //Ejercicio 3
 
         for (int i = 0; i < 5; i++) {
