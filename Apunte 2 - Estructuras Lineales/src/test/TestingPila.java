@@ -15,7 +15,7 @@ public class TestingPila {
     public static void testPila() {
 
         System.out.println("COMIENZO TEST PILA");
-        PilaDinamica p1 = new PilaDinamica();
+        PilaEstatica p1 = new PilaEstatica();
         System.out.println("\t\t\t\t\t\t\t\t--> " + p1.toString());
 
         System.out.print("Apila 1 espera TRUE y [1]:\t\t\t\t" + ((p1.apilar(1)) ? sOk : sErr));
@@ -56,7 +56,7 @@ public class TestingPila {
         System.out.println("espera \t1,2,3,4,5,6,7,8,6 recupera \t\t\t\t--> " + p1.toString());
         System.out.println("Recupera tope, espera 6 recupera " + (int) p1.obtenerTope() + "\t\t\t" + (((int) p1.obtenerTope() == 6) ? sOk : sErr));
 
-        PilaDinamica p2 = p1.clone();
+        PilaEstatica p2 = p1.clone();
         System.out.println("Copia espera 1,2,3,4,5,6,7,8,6: \t\t\t\t--> " + p2.toString());
 
         while (!p1.esVacia()) {

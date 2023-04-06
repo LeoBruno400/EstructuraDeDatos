@@ -78,21 +78,27 @@ public class PilaEstatica {
         this.tope = -1;
     }
 
+    @Override
     public String toString() {
         // Imprime los elementos dentro de la pila.
-        String mensaje = "";
+        String mensaje = "[";
         int i;
 
         if (this.tope > -1) {
             for (i = 0; i <= this.tope; i++) {
-                mensaje += "POSICION " + i + ": " + this.arreglo[i].toString() + "\n";
+                mensaje += this.arreglo[i].toString();
+                if(i != this.tope){
+                    mensaje += ",";
+                }
             }
+            mensaje += "]";
         } else {
             mensaje = "Pila Vacia";
         }
         return mensaje;
     }
 
+    @Override
     public PilaEstatica clone() {
         //Clona la pila en una nueva.
         PilaEstatica nueva = new PilaEstatica();
@@ -108,25 +114,11 @@ public class PilaEstatica {
         return aux;
     }
 
-    public PilaEstatica invertirPila(){
-        PilaEstatica auxPila = new PilaEstatica();
-        auxPila.arreglo = Arrays.copyOf(this.arreglo, this.tope+1);
-        auxPila.setTope(this.tope);
-        PilaEstatica inversa= new PilaEstatica();
-        inversa.setTope(this.tope);
-
-        for (int index = 0; index <= this.tope ; index++) {
-            inversa.apilar(auxPila.obtenerTope());
-            auxPila.desapilar();
-        }
-
-        return inversa;
-    }
-
     public String esCapicua(){
         PilaEstatica inversa = new PilaEstatica();
         PilaEstatica pilaAux = new PilaEstatica();
         PilaEstatica original = new PilaEstatica();
+        
         original.arreglo = this.arreglo.clone();
         pilaAux.arreglo = this.arreglo.clone();
 

@@ -80,27 +80,27 @@ public class PilaDinamica {
     
     @Override
     public String toString(){
-        String s = "";
+        String mensaje = "";
 
         if(this.tope == null){
-            s = "Pila vacia";
+            mensaje = "Pila vacia";
         }else{
             //Se ubica para recorrer la pila
             Nodo aux = this.tope;
-            s = "[";
+            mensaje = "[";
 
             while(aux != null){
                 //Agrega el texto del elem y avanza
-                s += aux.getElemento().toString();
+                mensaje += aux.getElemento().toString();
                 aux = aux.getEnlace();
                 if(aux != null){
-                    s += ",";
+                    mensaje += ",";
                 }
             }
-            s += "]";
+            mensaje += "]";
         }
 
-        return s;
+        return mensaje;
     }
 
 }
