@@ -35,13 +35,11 @@ public class TestPilaEstatica {
 
         System.out.println("La random es: " + "\n" + newPila1.toString());
 
-        System.out.println(newPila1.esCapicua());
+        System.out.println(newPila1.esCapicua() ? "Es Capicua" : "No son Capicua");
 
         /*Extienda la clase TestPila para comprobar que
         la misma clase Pila también funciona con elementos de tipo String.
         */
-
-
         
     }
 }

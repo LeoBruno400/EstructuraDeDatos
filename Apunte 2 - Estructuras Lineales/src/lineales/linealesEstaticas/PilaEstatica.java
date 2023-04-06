@@ -1,13 +1,7 @@
-/************* Autores ***********
-    Bruno Leo Joaquín, Legajo FAI-3268
-    Monserrat Vidal Maria Elvira, Legajo FAI-1829
-    Padrón Schneider Juan Ignacio, Legajo FAI-1646
-*/
-
 import java.util.Arrays;
 public class PilaEstatica {
     //Ejercicio 1
-    private static final int TAMANIO = 10;
+    private static final int TAMANIO = 5;
     private Object[] arreglo;
     private int tope;
 
@@ -120,30 +114,15 @@ public class PilaEstatica {
         return aux;
     }
 
-    public String esCapicua(){
+    public boolean esCapicua(){
         PilaEstatica inversa = new PilaEstatica();
-        PilaEstatica pilaAux = new PilaEstatica();
-        PilaEstatica original = new PilaEstatica();
-        
-        original.arreglo = this.arreglo.clone();
-        pilaAux.arreglo = this.arreglo.clone();
+        PilaEstatica pilaAux = this.clone();
 
-        Object elemento = null;
-        String mensaje = "";
-
-        for (int i = 0; i < this.tope; i++) {
-            elemento = pilaAux.obtenerTope();
+        while(!pilaAux.esVacia()){
+            inversa.apilar(pilaAux.obtenerTope());
             pilaAux.desapilar();
-            inversa.apilar(elemento);
-        }
-
-        if(original.equals(inversa) == true){
-            mensaje = "Es capicua";
-        }else{
-            mensaje = "No son capicua";
         }
         
-        return mensaje;
+        return (this.equals(inversa));
     }
-   
 }

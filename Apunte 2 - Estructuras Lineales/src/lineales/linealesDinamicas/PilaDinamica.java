@@ -1,8 +1,3 @@
-/************* Autores ***********
-    Bruno Leo Joaquín, Legajo FAI-3268
-    Monserrat Vidal Maria Elvira, Legajo FAI-1829
-    Padrón Schneider Juan Ignacio, Legajo FAI-1646
-*/
 public class PilaDinamica {
     
     private Nodo tope;
