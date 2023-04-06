@@ -1,7 +1,7 @@
 import java.util.Arrays;
 public class PilaEstatica {
     //Ejercicio 1
-    private static final int TAMANIO = 5;
+    private static final int TAMANIO = 10;
     private Object[] arreglo;
     private int tope;
 

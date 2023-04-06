@@ -21,14 +21,16 @@ public class PilaDinamica {
     public boolean desapilar(){
         boolean seDesapilo = true;
 
-        if (this.tope.getEnlace() != null){ //Si no es el último nodo
-            this.tope = this.tope.getEnlace();
-        }else if (this.tope.getEnlace() == null){ //Si es el último nodo
-            this.tope = null;
-        }else{ //Si no tiene nodo (o sea, pila vacia, o sea, this.tope ya es null)
+        if(this.tope == null){ //Si no tiene nodo (o sea, pila vacia, o sea, this.tope ya es null)
             seDesapilo = false;
+        }else{
+            if (this.tope.getEnlace() != null){ //Si no es el último nodo
+                this.tope = this.tope.getEnlace();
+            }else if (this.tope.getEnlace() == null){ //Si es el último nodo
+                this.tope = null;
+            }
         }
-
+        
         return seDesapilo;
     }
 
