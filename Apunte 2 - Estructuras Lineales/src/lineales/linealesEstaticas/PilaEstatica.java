@@ -1,5 +1,4 @@
 import java.util.Arrays;
-
 public class PilaEstatica {
     //Ejercicio 1
     private static final int TAMANIO = 5;
@@ -13,6 +12,10 @@ public class PilaEstatica {
     }
 
     // ---------------------Basicas---------------------
+
+    public void setTope(int numero){
+        this.tope = numero;
+    }
 
     public boolean apilar(Object newElem) {
         // Apila un nuevo elemento.
@@ -105,22 +108,44 @@ public class PilaEstatica {
         return aux;
     }
 
-    public boolean esCapicua(){
-        //Compara si la pila es capicua
-        PilaEstatica pilaAux = new PilaEstatica();
-        pilaAux.arreglo = this.arreglo.clone();
-        PilaEstatica inversa = new PilaEstatica();
-        Object numAux = "";
+    public PilaEstatica invertirPila(){
+        PilaEstatica auxPila = new PilaEstatica();
+        auxPila.arreglo = Arrays.copyOf(this.arreglo, this.tope+1);
+        auxPila.setTope(this.tope);
+        PilaEstatica inversa= new PilaEstatica();
+        inversa.setTope(this.tope);
 
-        int i, n = this.arreglo.length;
-
-        for (i = 0; i < n; i++) {
-            numAux = pilaAux.obtenerTope();
-            pilaAux.desapilar();
-            inversa.apilar(numAux);
+        for (int index = 0; index <= this.tope ; index++) {
+            inversa.apilar(auxPila.obtenerTope());
+            auxPila.desapilar();
         }
 
-        return Arrays.equals(this.arreglo, inversa.arreglo);
-        
+        return inversa;
     }
+
+    public String esCapicua(){
+        PilaEstatica inversa = new PilaEstatica();
+        PilaEstatica pilaAux = new PilaEstatica();
+        PilaEstatica original = new PilaEstatica();
+        original.arreglo = this.arreglo.clone();
+        pilaAux.arreglo = this.arreglo.clone();
+
+        Object elemento = null;
+        String mensaje = "";
+
+        for (int i = 0; i < this.tope; i++) {
+            elemento = pilaAux.obtenerTope();
+            pilaAux.desapilar();
+            inversa.apilar(elemento);
+        }
+
+        if(original.equals(inversa) == true){
+            mensaje = "Es capicua";
+        }else{
+            mensaje = "No son capicua";
+        }
+        
+        return mensaje;
+    }
+   
 }

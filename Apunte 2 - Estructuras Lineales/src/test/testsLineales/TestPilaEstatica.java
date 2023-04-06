@@ -7,7 +7,7 @@ public class TestPilaEstatica {
         PilaEstatica newPila1 = new PilaEstatica();
 
         for (int i = 0; i < 5; i++) {
-            newPila1.apilar(i);
+            newPila1.apilar(i*2);
         }
 
         PilaEstatica newPila2 = newPila1.clone();
@@ -30,16 +30,18 @@ public class TestPilaEstatica {
         //Ejercicio 3
 
         for (int i = 0; i < 5; i++) {
-            newPila1.apilar((int)(Math.random()*4));
+            newPila1.apilar((int)(Math.random()*0));
         }
-        System.out.println("La random es: " + "\n" + newPila1.toString());
-        
-        System.out.println("Es capicua: " + newPila1.esCapicua());
 
-        /*
-        Extienda la clase TestPila para comprobar que
+        System.out.println("La random es: " + "\n" + newPila1.toString());
+
+        System.out.println(newPila1.esCapicua());
+
+        /*Extienda la clase TestPila para comprobar que
         la misma clase Pila también funciona con elementos de tipo String.
         */
+
+
         
-     }
+    }
 }
