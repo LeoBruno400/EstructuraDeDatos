@@ -1,3 +1,9 @@
+/************* Autores ***********
+    Bruno Leo Joaquín, Legajo FAI-3268
+    Monserrat Vidal Maria Elvira, Legajo FAI-1829
+    Padrón Schneider Juan Ignacio, Legajo FAI-1646
+*/
+
 import java.util.Arrays;
 public class PilaEstatica {
     //Ejercicio 1
