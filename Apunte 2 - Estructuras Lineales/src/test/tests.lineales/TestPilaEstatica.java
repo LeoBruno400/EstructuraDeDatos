@@ -40,7 +40,6 @@ public class TestPilaEstatica {
         /*Extienda la clase TestPila para comprobar que
         la misma clase Pila también funciona con elementos de tipo String.
         */
-        //Prueba
         
         /*
             ━━━━-╮
