@@ -2,33 +2,24 @@ package jerarquicas.jerarquicasDinamica;
 
 public class NodoArbol {
 
-    private Object tipoElemento;
+    /* ATRIBUTOS */
+
+    private Object elem;
     private NodoArbol izquierdo;
     private NodoArbol derecho;
 
-    //Constructor
-    public NodoArbol(Object tipoELemento, NodoArbol izquierdo, NodoArbol derecho){
-        this.tipoElemento = tipoELemento;
+    /* CONSTRUCTOR */
+
+    public NodoArbol(Object elem, NodoArbol izquierdo, NodoArbol derecho){
+        this.elem = elem;
         this.izquierdo = izquierdo;
         this.derecho = derecho;
     }
-    
-    //Modificadoras
-    public void setElemento(Object tipoElemento){
-        this.tipoElemento = tipoElemento;
-    }
 
-    public void setIzquierdo(NodoArbol izquierdo){
-        this.izquierdo = izquierdo;
-    }
+    /* OBSERVADORES */
 
-    public void setDerecho(NodoArbol derecho){
-        this.derecho = derecho;
-    }
-
-    //Observadoras
-    public Object getElemento(){
-        return this.tipoElemento;
+    public Object getElem(){
+        return this.elem;
     }
 
     public NodoArbol getIzquierdo(){
@@ -37,5 +28,19 @@ public class NodoArbol {
 
     public NodoArbol getDerecho(){
         return this.derecho;
+    }
+
+    /* MODIFICADORES */
+
+    public void setElem(Object elem){
+        this.elem = elem;
+    }
+
+    public void setIzquierdo(NodoArbol izquierdo){
+        this.izquierdo = izquierdo;
+    }
+
+    public void setDerecho(NodoArbol derecho){
+        this.derecho = derecho;
     }
 }
