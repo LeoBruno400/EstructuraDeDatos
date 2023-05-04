@@ -167,7 +167,7 @@ public class Lista {
     }
 
     //EJERCICIO TIPO 1
-    //a)
+    //A)
     public Lista obtenerMultiplos(int num){
         Lista listaNew = new Lista();
         Nodo nodoAux = this.cabecera;
@@ -186,7 +186,7 @@ public class Lista {
         return listaNew;
     }
 
-    //b)
+    //B)
     public boolean eliminarApariciones(Object x){
         boolean exito = true;
         Nodo nodoAux1 = this.cabecera;

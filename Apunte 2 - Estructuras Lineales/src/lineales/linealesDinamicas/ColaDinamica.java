@@ -88,8 +88,8 @@ public class ColaDinamica {
         // Actualizamos el último nodo de la cola clonada
         colaClon.fin = nodoClonado;
     }
-    return colaClon;
-}
+        return colaClon;
+    }
 
 
     @Override
@@ -113,6 +113,22 @@ public class ColaDinamica {
         }
         return texto;
     }
+
+    public int longitud(){
+        int longi = 0;
+        if(this.frente != null){
+            Nodo aux = this.frente;
+
+            while(aux != null){
+                longi++;
+                aux = aux.getEnlace();
+            }
+        }
+        return longi;
+    }
+
+
+
 
     /*
       ———————————No Code?———————————
