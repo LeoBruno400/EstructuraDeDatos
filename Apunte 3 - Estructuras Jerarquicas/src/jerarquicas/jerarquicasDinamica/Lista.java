@@ -165,5 +165,23 @@ public class Lista {
 
         return texto;
     }
-    
+
+    public Lista obtenerMultiplos(int num){
+        Lista listaNew = new Lista();
+        Nodo nodoAux = this.cabecera;
+
+        int i = 1 , j = 0;
+
+        if(this.cabecera != null){
+            while (i<this.longitud()+1) {
+                if(i % num == 0){
+                    listaNew.insertar(nodoAux.getElemento(), j);
+                    j++;
+                }
+                nodoAux = nodoAux.getEnlace();
+                i++;
+            }
+        }
+        return listaNew;
+    }
 }
