@@ -1,7 +1,13 @@
 public class TestCadenas{
     public static void main(String[] args){
-        String palabra = "hola";
-        System.out.println(invertirPalabra(palabra));
+        ColaDinamica colaTest = new ColaDinamica();
+        String text1 = "hola";
+        String text2 = "renpo";
+        String text3 = "doog";
+        colaTest.poner(text1);
+        colaTest.poner(text2);
+        colaTest.poner(text3);
+        generarCola(colaTest).toString();
     }
 
     // EJERCICIO TIPO 2
@@ -11,10 +17,12 @@ public class TestCadenas{
         int n = c1.longitud();
         String textoAux;
 
-        for (int i = 0; i < n; i++) {
-            textoAux = (String) c1.obtenerFrente();
-            textoAux = textoAux + invertirPalabra(textoAux) + textoAux;
-            newCola.poner(textoAux);
+        if(c1.obtenerFrente() != null){
+            for (int i = 0; i < n; i++) {
+                textoAux = (String) c1.obtenerFrente();
+                textoAux = textoAux + invertirPalabra(textoAux) + textoAux;
+                newCola.poner(textoAux);
+            }
         }
         return newCola;
     }
@@ -32,5 +40,21 @@ public class TestCadenas{
             return ultimaLetra + invertirPalabra(palabraInvertida);
         }
     }
-    
+
+    //D)
+    //Pila
+    /*public static boolean verificarBalanceo(ColaDinamica q){
+        boolean exito = true;
+        int n = q.longitud();
+        char aux;
+        PilaDinamica newPila = new PilaDinamica();
+
+        if(q.obtenerFrente() != null){
+            for (int i = 0; i < n; i++) {
+
+            }
+        }
+        return exito;
+    }*/
+
 }
