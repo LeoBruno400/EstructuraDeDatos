@@ -1,4 +1,5 @@
-public class ColaDinamica {
+package jerarquicas.jerarquicasDinamica;
+public class ColaDinamica{
 
     private Nodo frente;
     private Nodo fin;
@@ -46,22 +47,6 @@ public class ColaDinamica {
 
     public Object obtenerFrente(){
         return this.frente.getElemento();
-    }
-
-    public Object obtenerElemento(int posicion) {
-        Nodo aux = this.frente;
-        int contador = 0;
-    
-        while (aux != null && contador < posicion) {
-            aux = aux.getEnlace();
-            contador++;
-        }
-    
-        if (aux != null) {
-            return aux.getElemento();
-        } else {
-            return null;
-        }
     }
 
     public boolean esVacia(){
@@ -142,9 +127,6 @@ public class ColaDinamica {
         }
         return longi;
     }
-
-    
-    
 
 
 

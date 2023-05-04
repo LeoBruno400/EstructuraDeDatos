@@ -163,5 +163,57 @@ public class ListaDinamica {
 
         return texto;
     }
-    
+
+    //EJERCICIO TIPO 1
+    //A)
+    public ListaDinamica obtenerMultiplos(int num){
+        ListaDinamica listaNew = new ListaDinamica();
+        Nodo nodoAux = this.cabecera;
+        int i = 1 , j = 0;
+
+        if(this.cabecera != null){
+            while (i<this.longitud()+1) {
+                if(i % num == 0){
+                    listaNew.insertar(nodoAux.getElemento(), j);
+                    j++;
+                }
+                nodoAux = nodoAux.getEnlace();
+                i++;
+            }
+        }
+        return listaNew;
+    }
+
+    //B)
+    public boolean eliminarApariciones(Object x){
+        boolean exito = true;
+        Nodo nodoAux1 = this.cabecera;
+        Nodo nodoAux2 = this.cabecera;
+        int i = 1;
+
+        if(this.cabecera != null){
+            while(i<this.longitud()+1){
+                if(nodoAux1.getElemento().equals(x)){
+                    if(nodoAux1.equals(nodoAux2)){
+                        this.cabecera = this.cabecera.getEnlace();
+                        nodoAux1 = nodoAux1.getEnlace();
+                        nodoAux2 = nodoAux2.getEnlace();
+                    }else{
+                        nodoAux2.setEnlace(nodoAux1.getEnlace()); 
+                        nodoAux1 = nodoAux2.getEnlace(); 
+                    }
+                }else{
+                    if(nodoAux1.equals(nodoAux2)){
+                        nodoAux1 = nodoAux1.getEnlace();
+                    }else{
+                        nodoAux2 = nodoAux1;
+                        nodoAux1 = nodoAux1.getEnlace();
+                    }
+                }
+            }
+            
+        }
+        return exito;
+    }
+
 }
