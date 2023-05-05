@@ -14,19 +14,6 @@ public class NodoArbol {
         this.derecho = derecho;
     }
 
-    //Observadoras
-    public Object getElem(){
-        return this.elem;
-    }
-
-    public NodoArbol getIzquierdo(){
-        return this.izquierdo;
-    }
-
-    public NodoArbol getDerecho(){
-        return this.derecho;
-    }
-
     //Modificadoras
     public void setElem(Object elem){
         this.elem = elem;
@@ -38,5 +25,18 @@ public class NodoArbol {
 
     public void setDerecho(NodoArbol derecho){
         this.derecho = derecho;
+    }
+
+    //Observadoras
+    public Object getElem(){
+        return this.elem;
+    }
+
+    public NodoArbol getIzquierdo(){
+        return this.izquierdo;
+    }
+
+    public NodoArbol getDerecho(){
+        return this.derecho;
     }
 }

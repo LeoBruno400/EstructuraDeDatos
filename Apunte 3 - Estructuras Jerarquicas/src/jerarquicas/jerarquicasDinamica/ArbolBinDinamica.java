@@ -9,6 +9,8 @@ public class ArbolBinDinamica {
 
     }
 
+    // ---------------------Basicas---------------------
+
     public boolean insertar(Object elemNuevo, Object elemPadre, char hijo) {
         boolean exito = false;
 
@@ -34,6 +36,7 @@ public class ArbolBinDinamica {
         return exito;
     }
 
+    //Metodo privado
     private NodoArbol obtenerNodo(NodoArbol nodo, Object padre) {
         NodoArbol resp = null;
         if (nodo != null) {
@@ -62,6 +65,7 @@ public class ArbolBinDinamica {
         return padre;
     }
 
+    //Metodo privado
     private Object padreAux(Object hijo, NodoArbol nodo) {
         Object resp = null;
         if (nodo != null) {
@@ -161,9 +165,9 @@ public class ArbolBinDinamica {
         return nuevo;
     }
 
-    public Lista listarPorNiveles() {
+    public ListaDinamica listarPorNiveles() {
         NodoArbol actual;
-        Lista lis = new Lista();
+        ListaDinamica lis = new ListaDinamica();
         if (this.raiz != null) {
             ColaDinamica q = new ColaDinamica();
             q.poner(this.raiz);
@@ -183,13 +187,13 @@ public class ArbolBinDinamica {
         return lis;
     }
 
-    public Lista listarPreorden() {
-        Lista lis = new Lista();
+    public ListaDinamica listarPreorden() {
+        ListaDinamica lis = new ListaDinamica();
         preordenAux(this.raiz, lis);
         return lis;
     }
 
-    private void preordenAux(NodoArbol nodo, Lista lis) {
+    private void preordenAux(NodoArbol nodo, ListaDinamica lis) {
         if (nodo != null) {
             lis.insertar(nodo.getElem(), lis.longitud() + 1);
             preordenAux(nodo.getIzquierdo(), lis);
@@ -198,13 +202,13 @@ public class ArbolBinDinamica {
 
     }
 
-    public Lista listarInorden() {
-        Lista lis = new Lista();
+    public ListaDinamica listarInorden() {
+        ListaDinamica lis = new ListaDinamica();
         inordenAux(this.raiz, lis);
         return lis;
     }
 
-    private void inordenAux(NodoArbol nodo, Lista lis) {
+    private void inordenAux(NodoArbol nodo, ListaDinamica lis) {
         if (nodo != null) {
             inordenAux(nodo.getIzquierdo(), lis);
             lis.insertar(nodo.getElem(), lis.longitud() + 1);
@@ -212,14 +216,14 @@ public class ArbolBinDinamica {
         }
     }
 
-    public Lista listarPosorden() {
-        Lista posOrden = new Lista();
+    public ListaDinamica listarPosorden() {
+        ListaDinamica posOrden = new ListaDinamica();
         posordenAux(this.raiz, posOrden);
 
         return posOrden;
     }
 
-    private void posordenAux(NodoArbol nodo, Lista lis) {
+    private void posordenAux(NodoArbol nodo, ListaDinamica lis) {
 
         if (nodo != null) {
             posordenAux(nodo.getIzquierdo(), lis);
@@ -258,14 +262,14 @@ public class ArbolBinDinamica {
         return resp;
     }
 
-    public Lista frontera() {
-        Lista hojas = new Lista();
+    public ListaDinamica frontera() {
+        ListaDinamica hojas = new ListaDinamica();
         fronteraAux(this.raiz, hojas);
 
         return hojas;
     }
 
-    private void fronteraAux(NodoArbol nodo, Lista hojas) {
+    private void fronteraAux(NodoArbol nodo, ListaDinamica hojas) {
         if (nodo != null) {
             if (nodo.getIzquierdo() == null && nodo.getDerecho() == null) {
                 hojas.insertar(nodo.getElem(), hojas.longitud() + 1);
@@ -275,14 +279,14 @@ public class ArbolBinDinamica {
         }
     }
 
-    public Lista obtenerAncestros(Object elem) {
-        Lista ancestros = new Lista();
+    public ListaDinamica obtenerAncestros(Object elem) {
+        ListaDinamica ancestros = new ListaDinamica();
         ancestrosAux(this.raiz, ancestros, elem);
 
         return ancestros;
     }
 
-    private boolean ancestrosAux(NodoArbol nodo, Lista ancestros, Object elem) {
+    private boolean ancestrosAux(NodoArbol nodo, ListaDinamica ancestros, Object elem) {
         boolean encontrado = false;
 
         if (nodo != null) {
@@ -300,10 +304,7 @@ public class ArbolBinDinamica {
                 }
 
             }
-
         }
         return encontrado;
     }
-
-
 }

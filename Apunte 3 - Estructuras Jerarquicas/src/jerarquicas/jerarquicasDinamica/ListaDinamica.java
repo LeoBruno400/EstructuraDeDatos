@@ -1,16 +1,14 @@
 package jerarquicas.jerarquicasDinamica;
-
-public class Lista {
+public class ListaDinamica {
 
     private Nodo cabecera;
 
-    /* CONSTRUCTOR */
-
-    public Lista(){
+    //Constructor
+    public ListaDinamica(){
         cabecera = null;
     }
 
-    /* BASICAS */
+    // ---------------------Basicas---------------------
 
     public boolean insertar(Object elemento, int pos){
         boolean exito = false;
@@ -91,10 +89,6 @@ public class Lista {
         return pos;
     }
 
-    public void vaciar(){
-        this.cabecera = null;
-    }
-
     public boolean esVacia(){
         boolean vacia = true;
         if(this.cabecera != null){
@@ -103,6 +97,12 @@ public class Lista {
         return vacia;
     }
 
+    // ---------------------NO Basicas---------------------
+
+    public void vaciar(){
+        this.cabecera = null;
+    }
+    
     public int longitud(){
         int contador = 0;
 
@@ -117,9 +117,9 @@ public class Lista {
     }
 
     @Override
-    public Lista clone() {
+    public ListaDinamica clone() {
 
-        Lista listaClon = new Lista();
+        ListaDinamica listaClon = new ListaDinamica();
 
         if (this.cabecera != null) {
             int i = 1;
@@ -168,8 +168,8 @@ public class Lista {
 
     //EJERCICIO TIPO 1
     //A)
-    public Lista obtenerMultiplos(int num){
-        Lista listaNew = new Lista();
+    public ListaDinamica obtenerMultiplos(int num){
+        ListaDinamica listaNew = new ListaDinamica();
         Nodo nodoAux = this.cabecera;
         int i = 1 , j = 0;
 

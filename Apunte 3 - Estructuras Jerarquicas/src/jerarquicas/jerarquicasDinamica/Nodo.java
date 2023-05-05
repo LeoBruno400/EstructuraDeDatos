@@ -2,16 +2,17 @@ package jerarquicas.jerarquicasDinamica;
 
 class Nodo {
 
+    //Atributos
     private Object elem;
     private Nodo enlace;
 
-    /* CONSTRUCTOR */
+    //Constructor
     public Nodo(Object elem,Nodo enlace){
         this.elem = elem;
         this.enlace = enlace;
     }
 
-    /* MODIFICADORES */
+    //Modificadoras
     public void setElemento(Object elem){
         this.elem = elem;
     }
@@ -20,7 +21,7 @@ class Nodo {
         this.enlace = enlace;
     }
 
-    /* OBSERVADORES */
+    //Observadoras
     public Object getElemento(){
         return elem;
     }
