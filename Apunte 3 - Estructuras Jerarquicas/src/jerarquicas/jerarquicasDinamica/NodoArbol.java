@@ -2,22 +2,19 @@ package jerarquicas.jerarquicasDinamica;
 
 public class NodoArbol {
 
-    /* ATRIBUTOS */
-
+    //Atributos
     private Object elem;
     private NodoArbol izquierdo;
     private NodoArbol derecho;
 
-    /* CONSTRUCTOR */
-
+    //Constructor
     public NodoArbol(Object elem, NodoArbol izquierdo, NodoArbol derecho){
         this.elem = elem;
         this.izquierdo = izquierdo;
         this.derecho = derecho;
     }
 
-    /* OBSERVADORES */
-
+    //Observadoras
     public Object getElem(){
         return this.elem;
     }
@@ -30,8 +27,7 @@ public class NodoArbol {
         return this.derecho;
     }
 
-    /* MODIFICADORES */
-
+    //Modificadoras
     public void setElem(Object elem){
         this.elem = elem;
     }

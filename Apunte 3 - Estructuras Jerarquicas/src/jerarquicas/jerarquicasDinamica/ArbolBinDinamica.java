@@ -8,20 +8,22 @@ public class ArbolBinDinamica {
 
     }
 
-    public boolean insertar(Object nuevo, Object padre, char hijo) {
+    public boolean insertar(Object elemNuevo, Object elemPadre, char hijo) {
         boolean exito = false;
+
         if (this.raiz == null) {
-            this.raiz = new NodoArbol(nuevo, null, null);
+            //Si el arbol esta vacio, pone elem nuevo en la raiz
+            this.raiz = new NodoArbol(elemNuevo, null, null);
             exito = true;
         } else {
-            NodoArbol nodoPadre;
-            nodoPadre = insertarAux(padre, this.raiz);
+            //Si el arbol no esta vacio, busca al padre
+            NodoArbol nodoPadre = obtenerNodo(this.raiz, elemPadre);
             if (nodoPadre != null) {
                 if ((hijo == 'i' || hijo == 'I') && nodoPadre.getIzquierdo() == null) {
-                    nodoPadre.setIzquierdo(new NodoArbol(nuevo, null, null));
+                    nodoPadre.setIzquierdo(new NodoArbol(elemNuevo, null, null));
                     exito = true;
                 } else if ((hijo == 'd' || hijo == 'D') && nodoPadre.getDerecho() == null) {
-                    nodoPadre.setDerecho(new NodoArbol(nuevo, null, null));
+                    nodoPadre.setDerecho(new NodoArbol(elemNuevo, null, null));
                     exito = true;
 
                 }
@@ -31,16 +33,16 @@ public class ArbolBinDinamica {
         return exito;
     }
 
-    private NodoArbol insertarAux(Object padre, NodoArbol nodo) {
+    private NodoArbol obtenerNodo(NodoArbol nodo, Object padre) {
         NodoArbol resp = null;
         if (nodo != null) {
             if (nodo.getElem().equals(padre)) {
                 resp = nodo;
 
             } else {
-                resp = insertarAux(padre, nodo.getIzquierdo());
+                resp = obtenerNodo(nodo.getIzquierdo(), padre);
                 if (resp == null) {
-                    resp = insertarAux(padre, nodo.getDerecho());
+                    resp = obtenerNodo(nodo.getDerecho(), padre);
                 }
 
             }
@@ -86,11 +88,6 @@ public class ArbolBinDinamica {
     }
 
     private int alturaAux(NodoArbol nodo) {
-        /*int altura=-1;
-        if (nodo!=null){
-        altura=Math.max(recuperarAltura(nodo.getIzquierdo()), recuperarAltura(nodo.getDerecho()))+1;
-        }
-         */
         int alturaIzq = -1, alturaDer = -1, altura;
 
         if (nodo.getIzquierdo() != null) {
