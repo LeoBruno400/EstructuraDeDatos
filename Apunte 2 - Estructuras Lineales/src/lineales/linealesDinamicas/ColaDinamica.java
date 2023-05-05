@@ -43,10 +43,15 @@ public class ColaDinamica {
         return exito;
     }
 
-
     public Object obtenerFrente(){
         return this.frente.getElemento();
     }
+
+    public boolean esVacia(){
+        return this.frente == null;
+    }
+
+    // ---------------------NO Basicas---------------------
 
     public Object obtenerElemento(int posicion) {
         Nodo aux = this.frente;
@@ -64,10 +69,6 @@ public class ColaDinamica {
         }
     }
 
-    public boolean esVacia(){
-        return this.frente == null;
-    }
-
     public boolean vaciar(){
         boolean sePudoVaciar = true;
         if(this.frente != null){ //Si la cola no está vacia
@@ -79,6 +80,19 @@ public class ColaDinamica {
             sePudoVaciar = false;
         }
         return sePudoVaciar;
+    }
+
+    public int longitud(){
+        int longi = 0;
+        if(this.frente != null){
+            Nodo aux = this.frente;
+
+            while(aux != null){
+                longi++;
+                aux = aux.getEnlace();
+            }
+        }
+        return longi;
     }
 
     @Override
@@ -107,7 +121,6 @@ public class ColaDinamica {
         return colaClon;
     }
 
-
     @Override
     public String toString(){
         String texto = "[";
@@ -129,41 +142,4 @@ public class ColaDinamica {
         }
         return texto;
     }
-
-    public int longitud(){
-        int longi = 0;
-        if(this.frente != null){
-            Nodo aux = this.frente;
-
-            while(aux != null){
-                longi++;
-                aux = aux.getEnlace();
-            }
-        }
-        return longi;
-    }
-
-    
-    
-
-
-
-
-    /*
-      ———————————No Code?———————————
-        ⠀⣞⢽⢪⢣⢣⢣⢫⡺⡵⣝⡮⣗⢷⢽⢽⢽⣮⡷⡽⣜⣜⢮⢺⣜⢷⢽⢝⡽⣝
-        ⠸⡸⠜⠕⠕⠁⢁⢇⢏⢽⢺⣪⡳⡝⣎⣏⢯⢞⡿⣟⣷⣳⢯⡷⣽⢽⢯⣳⣫⠇
-        ⠀⠀⢀⢀⢄⢬⢪⡪⡎⣆⡈⠚⠜⠕⠇⠗⠝⢕⢯⢫⣞⣯⣿⣻⡽⣏⢗⣗⠏⠀
-        ⠀⠪⡪⡪⣪⢪⢺⢸⢢⢓⢆⢤⢀⠀⠀⠀⠀⠈⢊⢞⡾⣿⡯⣏⢮⠷⠁⠀⠀
-        ⠀⠀⠀⠈⠊⠆⡃⠕⢕⢇⢇⢇⢇⢇⢏⢎⢎⢆⢄⠀⢑⣽⣿⢝⠲⠉⠀⠀⠀⠀
-        ⠀⠀⠀⠀⠀⡿⠂⠠⠀⡇⢇⠕⢈⣀⠀⠁⠡⠣⡣⡫⣂⣿⠯⢪⠰⠂⠀⠀⠀⠀
-        ⠀⠀⠀⠀⡦⡙⡂⢀⢤⢣⠣⡈⣾⡃⠠⠄⠀⡄⢱⣌⣶⢏⢊⠂⠀⠀⠀⠀⠀⠀
-        ⠀⠀⠀⠀⢝⡲⣜⡮⡏⢎⢌⢂⠙⠢⠐⢀⢘⢵⣽⣿⡿⠁⠁⠀⠀⠀⠀⠀⠀⠀
-        ⠀⠀⠀⠀⠨⣺⡺⡕⡕⡱⡑⡆⡕⡅⡕⡜⡼⢽⡻⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-        ⠀⠀⠀⠀⣼⣳⣫⣾⣵⣗⡵⡱⡡⢣⢑⢕⢜⢕⡝⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-        ⠀⠀⠀⣴⣿⣾⣿⣿⣿⡿⡽⡑⢌⠪⡢⡣⣣⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-        ⠀⠀⠀⡟⡾⣿⢿⢿⢵⣽⣾⣼⣘⢸⢸⣞⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-        ⠀⠀⠀⠀⠁⠇⠡⠩⡫⢿⣝⡻⡮⣒⢽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-        —————————————————————————————
-     */
 }

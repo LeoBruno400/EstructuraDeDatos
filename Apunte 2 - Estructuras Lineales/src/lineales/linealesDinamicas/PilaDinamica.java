@@ -6,6 +6,8 @@ public class PilaDinamica {
         this.tope = null;
     }
 
+    // ---------------------Basicas---------------------
+    
     public boolean apilar(Object nuevoElem){
 
         //Crea un nuevo nodo delante de la antigua cabecera
@@ -52,14 +54,12 @@ public class PilaDinamica {
         return estaVacia;
     }
 
+    // ---------------------NO Basicas---------------------
+
     public void vaciar(){
-
-        if(this.tope != null){
-            this.tope = null;
-        }
-
+        this.tope = null;
     }
-
+    
     @Override
     public PilaDinamica clone(){
         PilaDinamica clon = new PilaDinamica();
@@ -102,23 +102,4 @@ public class PilaDinamica {
 
         return mensaje;
     }
-
-    /* 
-            ⠀⠀⠀⠀⠀⢀⣀⣤⣶⣶⣶⣶⣶⢶⢶⡦⢤⣀⠀⠀⠀⠀⠀⠀
-        ⠀⠀⠀⠀⢀⣠⣴⣿⣿⣿⣿⣿⣿⣿⣿⢃⣾⣾⣿⣶⣶⣿⣦⡀⠀⠀⠀
-        ⠀⠀⣠⢶⣿⣿⣿⣿⣿⠿⣿⡿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀
-        ⢠⣞⣷⣾⣿⣿⣿⠟⠁⢰⣿⣷⣿⣿⣿⣽⣟⣿⣿⣿⣿⣿⣿⣿⣦⣄⠀
-        ⣿⣿⣿⣿⣿⣿⠋⢀⣀⣀⣻⡿⠿⣿⣿⣿⣟⣿⣿⣿⣿⢷⣤⣿⡿⢿⡆
-        ⠹⣿⣿⣿⣿⢃⡔⢉⣤⣤⣄⠉⠀⠀⠀⠉⢡⣤⣤⡌⠙⣇⢻⣿⣷⡾⠀
-        ⠀⠹⣻⣿⣿⣄⠀⠸⣿⣿⣿⠇⠀⠀⠀⠀⢸⣿⣿⡿⠀⠀⠈⡿⠿⢅⠀
-        ⠀⠀⢇⣿⣿⠀⠐⠢⠤⠥⠔⠂⠀⠀⠀⠀⠢⠤⠥⠤⠒⠀⠀⣶⠗⣸⠀
-        ⠀⠀⠈⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣛⡵⠃⠀
-        ⠀⠀⠀⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡇⠀⠀⠀
-        ⠀⠀⠀⣿⣿⣿⣿⣷⣤⣄⡀⠀⠀⠀⠀⠀⢀⣀⣠⣶⣿⣿⣿⡇⠀⠀⠀
-        ⠀⠀⠀⣍⣻⠋⣿⢻⣿⣿⣿⣿⡆⠀⠀⣿⣿⣿⣿⣿⠿⠛⠉⣇⠀⠀⠀
-        ⠀⠀⠀⣿⣿⣼⣿⣾⣿⣿⡿⠋⡇⠀⢀⠏⢻⣿⣿⣿⣿⣿⣿⣸⠀⠀⠀
-        ⠀⠀⢸⣿⣿⡿⠿⠛⠉⡹⠁⠀⠹⣄⡞⠀⠀⢻⠉⠙⠻⠿⣿⣧⣇⠀⠀
-        ⠀⠀⣼⣿⣿⣇⠀⠀⢰⣥⣶⣯⣝⣿⣿⣿⣷⣦⡧⠀⠀⢰⠹⣿⣾⠀⠀
-        ⠀⠀⣿⣿⣿⣿⣆⠀⠘⣾⣿⣿⣿⡟⣿⣿⣿⣿⡇⠀⢠⠇⠀⢻⣿⠀
-    */
 }

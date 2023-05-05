@@ -2,13 +2,12 @@ public class ListaDinamica {
 
     private Nodo cabecera;
 
-    /* CONSTRUCTOR */
-
+    //Constructor
     public ListaDinamica(){
         cabecera = null;
     }
 
-    /* BASICAS */
+    // ---------------------Basicas---------------------
 
     public boolean insertar(Object elemento, int pos){
         boolean exito = false;
@@ -89,10 +88,6 @@ public class ListaDinamica {
         return pos;
     }
 
-    public void vaciar(){
-        this.cabecera = null;
-    }
-
     public boolean esVacia(){
         boolean vacia = true;
         if(this.cabecera != null){
@@ -101,6 +96,12 @@ public class ListaDinamica {
         return vacia;
     }
 
+    // ---------------------NO Basicas---------------------
+
+    public void vaciar(){
+        this.cabecera = null;
+    }
+    
     public int longitud(){
         int contador = 0;
 

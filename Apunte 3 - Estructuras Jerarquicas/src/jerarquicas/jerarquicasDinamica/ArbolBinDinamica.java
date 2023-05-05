@@ -1,4 +1,5 @@
 package jerarquicas.jerarquicasDinamica;
+
 public class ArbolBinDinamica {
 
     private NodoArbol raiz;
@@ -12,11 +13,11 @@ public class ArbolBinDinamica {
         boolean exito = false;
 
         if (this.raiz == null) {
-            //Si el arbol esta vacio, pone elem nuevo en la raiz
+            // Si el arbol esta vacio, pone elem nuevo en la raiz
             this.raiz = new NodoArbol(elemNuevo, null, null);
             exito = true;
         } else {
-            //Si el arbol no esta vacio, busca al padre
+            // Si el arbol no esta vacio, busca al padre
             NodoArbol nodoPadre = obtenerNodo(this.raiz, elemPadre);
             if (nodoPadre != null) {
                 if ((hijo == 'i' || hijo == 'I') && nodoPadre.getIzquierdo() == null) {
@@ -65,7 +66,8 @@ public class ArbolBinDinamica {
         Object resp = null;
         if (nodo != null) {
 
-            if ((nodo.getIzquierdo() != null && nodo.getIzquierdo().getElem().equals(hijo)) || (nodo.getDerecho() != null && nodo.getDerecho().getElem().equals(hijo))) {
+            if ((nodo.getIzquierdo() != null && nodo.getIzquierdo().getElem().equals(hijo))
+                    || (nodo.getDerecho() != null && nodo.getDerecho().getElem().equals(hijo))) {
                 resp = nodo.getElem();
             } else {
                 resp = padreAux(hijo, nodo.getIzquierdo());
@@ -179,7 +181,6 @@ public class ArbolBinDinamica {
             }
         }
         return lis;
-
     }
 
     public Lista listarPreorden() {
@@ -273,36 +274,36 @@ public class ArbolBinDinamica {
             fronteraAux(nodo.getDerecho(), hojas);
         }
     }
-    
-    public Lista obtenerAncestros(Object elem){
-    Lista ancestros= new Lista();
-    ancestrosAux(this.raiz,ancestros,elem);
-    
-    return ancestros;
+
+    public Lista obtenerAncestros(Object elem) {
+        Lista ancestros = new Lista();
+        ancestrosAux(this.raiz, ancestros, elem);
+
+        return ancestros;
     }
 
     private boolean ancestrosAux(NodoArbol nodo, Lista ancestros, Object elem) {
-    boolean encontrado=false;
-    
-        if (nodo!=null) {
+        boolean encontrado = false;
+
+        if (nodo != null) {
             if (nodo.getElem().equals(elem)) {
-                encontrado=true;
+                encontrado = true;
             }
-                
-            
+
             if (!encontrado) {
-                encontrado=ancestrosAux(nodo.getIzquierdo(),ancestros,elem);
+                encontrado = ancestrosAux(nodo.getIzquierdo(), ancestros, elem);
                 if (!encontrado) {
-                    encontrado=ancestrosAux(nodo.getDerecho(),ancestros,elem);
+                    encontrado = ancestrosAux(nodo.getDerecho(), ancestros, elem);
                 }
                 if (encontrado) {
-                ancestros.insertar(nodo.getElem(),ancestros.longitud()+1 );
+                    ancestros.insertar(nodo.getElem(), ancestros.longitud() + 1);
+                }
+
             }
-                
-            }
-            
-        } 
+
+        }
         return encontrado;
     }
-}
 
+
+}

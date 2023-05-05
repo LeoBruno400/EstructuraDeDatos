@@ -1,9 +1,9 @@
 public class TestCadenas{
     public static void main(String[] args){
         ColaDinamica colaTest = new ColaDinamica();
-        String text1 = "hola";
-        String text2 = "pongo";
-        String text3 = "wea";
+        String text1 = "AB";
+        String text2 = "CD";
+        String text3 = "F";
         colaTest.poner(text1);
         colaTest.poner(text2);
         colaTest.poner(text3);
@@ -40,22 +40,4 @@ public class TestCadenas{
             return ultimaLetra + invertirPalabra(palabraInvertida);
         }
     }
-
-    //D)
-    //Pila
-    public static boolean verificarBalanceo(ColaDinamica q){
-        boolean exito = true;
-        int n = q.longitud();
-        char aux;
-        PilaDinamica newPila = new PilaDinamica();
-
-        if(q.obtenerFrente() != null){
-            for (int i = 0; i < n; i++) {
-                aux = (char) q.obtenerElemento(i);
-                newPila.apilar(aux);
-            }
-        }
-        return exito;
-    }
-
 }

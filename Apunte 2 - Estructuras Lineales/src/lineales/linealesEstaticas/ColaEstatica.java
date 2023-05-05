@@ -11,6 +11,8 @@ public class ColaEstatica {
         this.fin = 0;
     }
 
+    // ---------------------Basicas---------------------
+
     public boolean poner(Object nuevoElemento){
         boolean exito = false;
        if(((this.fin+1)% TAMANIO) != this.frente){ // si no esta lleno.
@@ -52,6 +54,8 @@ public class ColaEstatica {
         }
     }
 
+    // ---------------------NO Basicas---------------------
+    
     @Override
     public ColaEstatica clone(){
         ColaEstatica colaClon = new ColaEstatica();

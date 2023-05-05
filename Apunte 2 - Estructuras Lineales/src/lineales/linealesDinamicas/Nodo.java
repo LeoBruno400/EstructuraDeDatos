@@ -3,22 +3,13 @@ public class Nodo {
     private Object elem;
     private Nodo enlace;
 
-    /* CONSTRUCTOR */
+    //Constructor
     public Nodo(Object elem,Nodo enlace){
         this.elem = elem;
         this.enlace = enlace;
     }
 
-    /* MODIFICADORES */
-    public void setElemento(Object elem){
-        this.elem = elem;
-    }
-
-    public void setEnlace(Nodo enlace){
-        this.enlace = enlace;
-    }
-
-    /* OBSERVADORES */
+    //Observadoras
     public Object getElemento(){
         return elem;
     }
@@ -26,16 +17,12 @@ public class Nodo {
         return enlace;
     }
 
-    /*
-        ⠀⠀⠀ ___
-　　　　　／＞　　フ
-　　　　　| 　_　 _|
-　 　　　／` ミ＿xノ
-　　 　 /　　　 　 |
-　　　 /　 ヽ　　 ﾉ
-　 　 │　　|　|　|
-　／￣|　　 |　|　|
-　| (￣ヽ＿_ヽ_)__)
-　＼二つ
-     */
+    //Modificadoras
+    public void setElemento(Object elem){
+        this.elem = elem;
+    }
+
+    public void setEnlace(Nodo enlace){
+        this.enlace = enlace;
+    }
 }
