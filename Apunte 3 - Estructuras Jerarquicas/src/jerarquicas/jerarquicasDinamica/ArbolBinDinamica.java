@@ -307,4 +307,52 @@ public class ArbolBinDinamica {
         }
         return encontrado;
     }
+
+    //EJERICICO TIPO 3
+    // e)
+    public boolean verificarPatron(ListaDinamica patron){
+
+        boolean exito = verificarPatronRecursivo(this.raiz, patron, 0);
+        return exito;
+    }
+
+    private boolean verificarPatronRecursivo(NodoArbol nodoPadre, ListaDinamica patron, int pos){
+        boolean exito = false;
+        Object aux = patron.recuperar(pos);
+
+        if(nodoPadre.getIzquierdo() == null && nodoPadre.getDerecho() == null){
+            if(nodoPadre.getElem().equals(aux) == true){
+                exito = true;
+            } 
+        }else if(nodoPadre.getIzquierdo() != null){
+            if(nodoPadre.getIzquierdo().getElem().equals(aux) == true){
+                exito = verificarPatronRecursivo(nodoPadre.getIzquierdo(), patron, pos+1);
+            }
+        }else{
+            if(nodoPadre.getDerecho().getElem().equals(aux) == true){
+                exito = verificarPatronRecursivo(nodoPadre.getDerecho(), patron, pos+1);
+            }
+        }
+        return exito;
+    }
+
+    // f) ponele que esta bien xd
+    public ListaDinamica fronteraEjercicio(){
+        ListaDinamica fronteraLista = new ListaDinamica();
+        fronteraLista = fronteraEjercicioRecursivo(this.raiz, fronteraLista);
+        return fronteraLista;
+    }
+
+    private ListaDinamica fronteraEjercicioRecursivo(NodoArbol nodoPadre, ListaDinamica list){
+        if(nodoPadre.getIzquierdo() == null && nodoPadre.getDerecho() == null){//hoja
+            list.insertar(nodoPadre.getElem(), list.longitud()+1);
+        }else{
+            list = fronteraEjercicioRecursivo(nodoPadre.getIzquierdo(), list);
+            list = fronteraEjercicioRecursivo(nodoPadre.getDerecho(), list);
+        }
+        
+        return list;
+    }
+    
 }
+
