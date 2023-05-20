@@ -1,25 +1,26 @@
 package jerarquicas.jerarquicasDinamica;
+
 public class ListaDinamica {
 
     private Nodo cabecera;
 
-    //Constructor
-    public ListaDinamica(){
+    // Constructor
+    public ListaDinamica() {
         cabecera = null;
     }
 
     // ---------------------Basicas---------------------
 
-    public boolean insertar(Object elemento, int pos){
+    public boolean insertar(Object elemento, int pos) {
         boolean exito = false;
 
-        if(pos > 0 && pos < this.longitud()+1){ //Si esta en el rango, lo va a guardar
-            if(pos == 1){ //Si quiere insertar en la primer posicion, se ata a la cabecera
+        if (pos > 0 && pos < this.longitud() + 1) { // Si esta en el rango, lo va a guardar
+            if (pos == 1) { // Si quiere insertar en la primer posicion, se ata a la cabecera
                 this.cabecera = new Nodo(elemento, this.cabecera);
-            } else{ //Avanza hasta el elemento en pos-1
+            } else { // Avanza hasta el elemento en pos-1
                 Nodo aux = this.cabecera;
                 int i = 1;
-                while(i < (pos - 1)){
+                while (i < (pos - 1)) {
                     aux = aux.getEnlace();
                     i++;
                 }
@@ -30,39 +31,41 @@ public class ListaDinamica {
         }
 
         return exito;
-        
+
     }
 
-    public boolean eliminar(int pos){
+    public boolean eliminar(int pos) {
         boolean exito = false;
-        
-        if(pos > 0 && pos < this.longitud()+1){ //Si esta en el rango, lo va a eliminar
-            if(pos == 1){ //Si quiere eliminar en la primer posicion, se cambia la cabecera
+
+        if (pos > 0 && pos < this.longitud() + 1) { // Si esta en el rango, lo va a eliminar
+            if (pos == 1) { // Si quiere eliminar en la primer posicion, se cambia la cabecera
                 this.cabecera = this.cabecera.getEnlace();
-            } else{ //Avanza hasta el elemento en pos-1
+            } else { // Avanza hasta el elemento en pos-1
                 Nodo auxPosDada = this.cabecera;
-                Nodo auxPosDadaMenosUno = auxPosDada; //Inicializado y creado para dejar feliz al IDE
+                Nodo auxPosDadaMenosUno = auxPosDada; // Inicializado y creado para dejar feliz al IDE
                 int i = 1;
-                while(i < pos){
+                while (i < pos) {
                     auxPosDadaMenosUno = auxPosDada;
-                    auxPosDada = auxPosDada.getEnlace(); //obtener el enlace del siguiente.
+                    auxPosDada = auxPosDada.getEnlace(); // obtener el enlace del siguiente.
                     i++;
                 }
-                auxPosDadaMenosUno.setEnlace(auxPosDada.getEnlace()); //O lo haces re sas: aux.setEnlace(aux.getEnlace().getEnlace()), recorriendo hasta pos-1 
+                auxPosDadaMenosUno.setEnlace(auxPosDada.getEnlace()); // O lo haces re sas:
+                                                                      // aux.setEnlace(aux.getEnlace().getEnlace()),
+                                                                      // recorriendo hasta pos-1
             }
             exito = true;
         }
 
         return exito;
     }
-    
-    public Object recuperar(int pos){
-        Object elemRecuperado = null; //Si la posicion no es valida, devolvera un elemento null
 
-        if(pos > 0 && pos < this.longitud()+1){ //Verifica que sea una posicion valida
+    public Object recuperar(int pos) {
+        Object elemRecuperado = null; // Si la posicion no es valida, devolvera un elemento null
+
+        if (pos > 0 && pos < this.longitud() + 1) { // Verifica que sea una posicion valida
             Nodo nodoAux = this.cabecera;
             int i = 1;
-            while(i < pos){
+            while (i < pos) {
                 nodoAux = nodoAux.getEnlace();
                 i++;
             }
@@ -72,13 +75,13 @@ public class ListaDinamica {
         return elemRecuperado;
     }
 
-    public int localizar(Object elemBuscado){
+    public int localizar(Object elemBuscado) {
         int pos = -1, i = 1;
         boolean elemEncontrado = false;
         Nodo nodoAux = this.cabecera;
 
-        while(i < this.longitud()+1 && !elemEncontrado){ //Posible rompedura con longitud
-            if(elemBuscado == nodoAux.getElemento()){
+        while (i < this.longitud() + 1 && !elemEncontrado) { // Posible rompedura con longitud
+            if (elemBuscado == nodoAux.getElemento()) {
                 pos = i;
                 elemEncontrado = true;
             }
@@ -89,9 +92,9 @@ public class ListaDinamica {
         return pos;
     }
 
-    public boolean esVacia(){
+    public boolean esVacia() {
         boolean vacia = true;
-        if(this.cabecera != null){
+        if (this.cabecera != null) {
             vacia = false;
         }
         return vacia;
@@ -99,16 +102,16 @@ public class ListaDinamica {
 
     // ---------------------NO Basicas---------------------
 
-    public void vaciar(){
+    public void vaciar() {
         this.cabecera = null;
     }
-    
-    public int longitud(){
+
+    public int longitud() {
         int contador = 0;
 
-        if(this.cabecera != null){
+        if (this.cabecera != null) {
             contador++; // +1 por la cabecera y +1 por cada nodo recorrido por while.
-            while(this.cabecera.getEnlace() != null){
+            while (this.cabecera.getEnlace() != null) {
                 contador++;
             }
         }
@@ -128,7 +131,7 @@ public class ListaDinamica {
             listaClon.cabecera = nodoClonado;
             // Iteramos sobre los nodos restantes de la Lista original
             Nodo nodoActual = this.cabecera.getEnlace();
-            while (i < this.longitud()+1) {
+            while (i < this.longitud() + 1) {
                 // Creamos un nuevo nodo en la Lista clonada
                 Nodo nuevoNodo = new Nodo(nodoActual.getElemento(), null);
                 // Enlazamos el nuevo nodo con el último nodo de la Lista clonada
@@ -143,39 +146,39 @@ public class ListaDinamica {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String texto = "[";
 
-        if(this.cabecera != null){ //Si la Lista NO esta vacia
+        if (this.cabecera != null) { // Si la Lista NO esta vacia
             Nodo aux = this.cabecera;
             int i = 1;
 
-            while(i < this.longitud()+1){
+            while (i < this.longitud() + 1) {
                 texto += aux.getElemento().toString();
                 aux = aux.getEnlace();
-                if(aux != null){
+                if (aux != null) {
                     texto += ",";
                 }
             }
             texto += "]";
 
-        }else{ //Si la Lista esta VACIA
+        } else { // Si la Lista esta VACIA
             texto = "La Lista esta VACIA";
         }
 
         return texto;
     }
 
-    //EJERCICIO TIPO 1
-    //A)
-    public ListaDinamica obtenerMultiplos(int num){
+    // EJERCICIO TIPO 1
+    // A)
+    public ListaDinamica obtenerMultiplos(int num) {
         ListaDinamica listaNew = new ListaDinamica();
         Nodo nodoAux = this.cabecera;
-        int i = 1 , j = 0;
+        int i = 1, j = 0;
 
-        if(this.cabecera != null){
-            while (i<this.longitud()+1) {
-                if(i % num == 0){
+        if (this.cabecera != null) {
+            while (i < this.longitud() + 1) {
+                if (i % num == 0) {
                     listaNew.insertar(nodoAux.getElemento(), j);
                     j++;
                 }
@@ -186,34 +189,34 @@ public class ListaDinamica {
         return listaNew;
     }
 
-    //B)
-    public boolean eliminarApariciones(Object x){
+    // B)
+    public boolean eliminarApariciones(Object x) {
         boolean exito = true;
         Nodo nodoAux1 = this.cabecera;
         Nodo nodoAux2 = this.cabecera;
         int i = 1;
 
-        if(this.cabecera != null){
-            while(i<this.longitud()+1){
-                if(nodoAux1.getElemento().equals(x)){
-                    if(nodoAux1.equals(nodoAux2)){
+        if (this.cabecera != null) {
+            while (i < this.longitud() + 1) {
+                if (nodoAux1.getElemento().equals(x)) {
+                    if (nodoAux1.equals(nodoAux2)) {
                         this.cabecera = this.cabecera.getEnlace();
                         nodoAux1 = nodoAux1.getEnlace();
                         nodoAux2 = nodoAux2.getEnlace();
-                    }else{
-                        nodoAux2.setEnlace(nodoAux1.getEnlace()); 
-                        nodoAux1 = nodoAux2.getEnlace(); 
+                    } else {
+                        nodoAux2.setEnlace(nodoAux1.getEnlace());
+                        nodoAux1 = nodoAux2.getEnlace();
                     }
-                }else{
-                    if(nodoAux1.equals(nodoAux2)){
+                } else {
+                    if (nodoAux1.equals(nodoAux2)) {
                         nodoAux1 = nodoAux1.getEnlace();
-                    }else{
+                    } else {
                         nodoAux2 = nodoAux1;
                         nodoAux1 = nodoAux1.getEnlace();
                     }
                 }
             }
-            
+
         }
         return exito;
     }

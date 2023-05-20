@@ -6,38 +6,39 @@ public class NodoGen {
     private NodoGen hijoIzquierdo;
     private NodoGen hermanoDerecho;
 
-    public NodoGen(Object elem, NodoGen hijoIzquierdo, NodoGen hermanoDerecho){
+    public NodoGen(Object elem, NodoGen hijoIzquierdo, NodoGen hermanoDerecho) {
         this.elem = elem;
         this.hijoIzquierdo = hijoIzquierdo;
         this.hermanoDerecho = hermanoDerecho;
     }
 
-    public Object getElem(){
+    public Object getElem() {
         return this.elem;
     }
 
-    public NodoGen getHijoIzquierdo(){
+    public NodoGen getHijoIzquierdo() {
         return this.hijoIzquierdo;
     }
 
-    public NodoGen getHermanoDerecho(){
+    public NodoGen getHermanoDerecho() {
         return this.hermanoDerecho;
     }
 
-    public void setElem(Object elem){
+    public void setElem(Object elem) {
         this.elem = elem;
     }
 
-    public void setHijoIzquierdo(NodoGen hijoIzquierdo){
+    public void setHijoIzquierdo(NodoGen hijoIzquierdo) {
         this.hijoIzquierdo = hijoIzquierdo;
     }
 
-    public void setHermanoDerecho(NodoGen hermanoDerecho){
+    public void setHermanoDerecho(NodoGen hermanoDerecho) {
         this.hermanoDerecho = hermanoDerecho;
     }
 
-    public boolean equals(NodoGen otroNodo){
+    public boolean equals(NodoGen otroNodo) {
+        // Compara si el elemento de este nodo es igual al elemento del otro nodo
         return (this.elem.equals(otroNodo.elem));
     }
-    
+
 }
