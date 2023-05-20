@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "test2",
+            "request": "launch",
+            "mainClass": "jerarquicas.jerarquicasDinamica.test2",
+            "projectName": "EstructuraDeDatos_42d6d5d5"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "jerarquicas.jerarquicasDinamica.test",
+            "projectName": "EstructuraDeDatos_42d6d5d5"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

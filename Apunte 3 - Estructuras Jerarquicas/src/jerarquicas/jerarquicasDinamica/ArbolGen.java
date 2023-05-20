@@ -451,8 +451,7 @@ public class ArbolGen {
 
     // INCISOS TP 2 OBLIGATORIO
 
-    // ADVERTENCIA: el árbol genérico puede tener elementos repetidos. Tomar como
-    // precondición del
+    // ADVERTENCIA: el árbol genérico puede tener elementos repetidos. Tomar como precondición del
     // método sonFrontera que la lista no tenga elementos repetidos.
     public boolean sonFrontera(ListaDinamica unaLista) {
         boolean sonFrontera = false;
@@ -488,13 +487,7 @@ public class ArbolGen {
     // en que aparezcan los elementos en la lista
 
     public boolean equals(ArbolGen unArbol) {
-        /*
-         * equals recibe un árbol genérico y debe comparar si éste es igual al árbol
-         * this. La
-         * signatura del método debe ser public boolean equals(ArbolGen unArbol). El
-         * método debe
-         * ser eficiente y no recorrer de más.
-         */
+
         boolean iguales = false;
         if (this.raiz.equals(unArbol.raiz)) {
             iguales = equalsAux(this.raiz.getHijoIzquierdo(), unArbol.raiz.getHijoIzquierdo());
