@@ -1,54 +1,55 @@
 package jerarquicas.jerarquicasDinamica;
+
 public class ColaDinamica {
 
     private Nodo frente;
     private Nodo fin;
 
-    //Constructor
-    public ColaDinamica(){
+    // Constructor
+    public ColaDinamica() {
         this.frente = null;
         this.fin = null;
     }
 
     // ---------------------Basicas---------------------
 
-    public boolean poner(Object elem){
+    public boolean poner(Object elem) {
         Nodo nuevoNodo = new Nodo(elem, null);
 
-        if(this.frente == null){ //Caso especial donde pila esta vacia
-            //Si el frente esta vacio entonces el final esta vacio
+        if (this.frente == null) { // Caso especial donde pila esta vacia
+            // Si el frente esta vacio entonces el final esta vacio
             this.frente = nuevoNodo;
             this.fin = nuevoNodo;
 
-        }else{//Caso normal
+        } else {// Caso normal
             this.fin.setEnlace(nuevoNodo);
             this.fin = nuevoNodo;
         }
-        return true; //Al ser dinamica siempre se va a agregar el nuevo elemento
+        return true; // Al ser dinamica siempre se va a agregar el nuevo elemento
     }
 
-    public boolean sacar(){
+    public boolean sacar() {
         boolean exito = true;
 
-        if(this.frente == null){
-            //ERROR: La esta vacia
+        if (this.frente == null) {
+            // ERROR: La esta vacia
             exito = false;
-        }else{
-            //Hay almenos un elemento
-            //Quita el primer elemento y actualiza frente (y fin se queda vacia)
+        } else {
+            // Hay almenos un elemento
+            // Quita el primer elemento y actualiza frente (y fin se queda vacia)
             this.frente = this.frente.getEnlace();
-            if(this.frente == null){ //Si frente no tiene nada, la Cola esta vacía
+            if (this.frente == null) { // Si frente no tiene nada, la Cola esta vacía
                 this.fin = null;
             }
         }
         return exito;
     }
 
-    public Object obtenerFrente(){
+    public Object obtenerFrente() {
         return this.frente.getElemento();
     }
 
-    public boolean esVacia(){
+    public boolean esVacia() {
         return this.frente == null;
     }
 
@@ -57,12 +58,12 @@ public class ColaDinamica {
     public Object obtenerElemento(int posicion) {
         Nodo aux = this.frente;
         int contador = 0;
-    
+
         while (aux != null && contador < posicion) {
             aux = aux.getEnlace();
             contador++;
         }
-    
+
         if (aux != null) {
             return aux.getElemento();
         } else {
@@ -70,25 +71,25 @@ public class ColaDinamica {
         }
     }
 
-    public boolean vaciar(){
+    public boolean vaciar() {
         boolean sePudoVaciar = true;
-        if(this.frente != null){ //Si la cola no está vacia
-            //La vacio
+        if (this.frente != null) { // Si la cola no está vacia
+            // La vacio
             this.frente = null;
             this.fin = null;
-        }else{ //Si esta vacia
-            //Devuelvo boolean que indica que no se vacio
+        } else { // Si esta vacia
+                 // Devuelvo boolean que indica que no se vacio
             sePudoVaciar = false;
         }
         return sePudoVaciar;
     }
 
-    public int longitud(){
+    public int longitud() {
         int longi = 0;
-        if(this.frente != null){
+        if (this.frente != null) {
             Nodo aux = this.frente;
 
-            while(aux != null){
+            while (aux != null) {
                 longi++;
                 aux = aux.getEnlace();
             }
@@ -98,47 +99,47 @@ public class ColaDinamica {
 
     @Override
     public ColaDinamica clone() {
-    ColaDinamica colaClon = new ColaDinamica();
+        ColaDinamica colaClon = new ColaDinamica();
 
-    if (this.frente != null) {
-        // Creamos el primer nodo de la cola clonada
-        Nodo nodoClonado = new Nodo(this.frente.getElemento(), null);
-        colaClon.frente = nodoClonado;
+        if (this.frente != null) {
+            // Creamos el primer nodo de la cola clonada
+            Nodo nodoClonado = new Nodo(this.frente.getElemento(), null);
+            colaClon.frente = nodoClonado;
 
-        // Iteramos sobre los nodos restantes de la cola original
-        Nodo nodoActual = this.frente.getEnlace();
-        while (nodoActual != null) {
-            // Creamos un nuevo nodo en la cola clonada
-            Nodo nuevoNodo = new Nodo(nodoActual.getElemento(), null);
-            // Enlazamos el nuevo nodo con el último nodo de la cola clonada
-            nodoClonado.setEnlace(nuevoNodo);
+            // Iteramos sobre los nodos restantes de la cola original
+            Nodo nodoActual = this.frente.getEnlace();
+            while (nodoActual != null) {
+                // Creamos un nuevo nodo en la cola clonada
+                Nodo nuevoNodo = new Nodo(nodoActual.getElemento(), null);
+                // Enlazamos el nuevo nodo con el último nodo de la cola clonada
+                nodoClonado.setEnlace(nuevoNodo);
+                // Actualizamos el último nodo de la cola clonada
+                nodoClonado = nuevoNodo;
+                nodoActual = nodoActual.getEnlace();
+            }
             // Actualizamos el último nodo de la cola clonada
-            nodoClonado = nuevoNodo;
-            nodoActual = nodoActual.getEnlace();
+            colaClon.fin = nodoClonado;
         }
-        // Actualizamos el último nodo de la cola clonada
-        colaClon.fin = nodoClonado;
-    }
         return colaClon;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String texto = "[";
 
-        if(this.frente != null){ //Si la Cola NO esta vacia
+        if (this.frente != null) { // Si la Cola NO esta vacia
             Nodo aux = this.frente;
 
-            while(aux != null){
+            while (aux != null) {
                 texto += aux.getElemento().toString();
                 aux = aux.getEnlace();
-                if(aux != null){
+                if (aux != null) {
                     texto += ",";
                 }
             }
             texto += "]";
 
-        }else{ //Si la Cola esta VACIA
+        } else { // Si la Cola esta VACIA
             texto = "La cola esta VACIA";
         }
         return texto;
